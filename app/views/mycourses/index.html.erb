@@ -1,0 +1,18 @@
+<p>Courses list</p>
+
+<%= form_tag mycourses_path, method:"get" do %>
+Name<%= text_field_tag :name%>
+Teacher<%= text_field_tag :teacher%>
+Time<%= text_field_tag :time %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to "new course", new_mycourse_path %>
+<br />
+
+<% @mycourses.each do |i| %>
+<%= link_to i.name, mycourse_path(i) %>
+<%= link_to "edit course", edit_mycourse_path(i) %>
+<%= link_to "delete course", mycourse_path(i), method:"delete" %>
+<br >
+<% end %>
